@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-const API_KEY = 'AIzaSyCWy-YpVOAV3xG-wScw8cjBu2kQEqwJh8U'
+const API_KEY = ''
 
 const App =  () => {
     return <div> Hi there!</div> ;
