@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import dotenv from 'dotenv'
+
+const API_KEY = 'AIzaSyCWy-YpVOAV3xG-wScw8cjBu2kQEqwJh8U'
 
 const App =  () => {
     return <div> Hi there!</div> ;

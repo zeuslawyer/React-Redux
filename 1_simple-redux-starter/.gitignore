@@ -4,3 +4,4 @@
 
 #FILES
 .env
+secrets.js
