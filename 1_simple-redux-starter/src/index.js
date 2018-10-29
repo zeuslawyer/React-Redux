@@ -1,12 +1,19 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from "react";
+import ReactDOM from "react-dom";
 
-const API_KEY = ''
+// importing components
+import SearchBar from './components/Search-bar';
 
-const App =  () => {
-    return <div> Hi there!</div> ;
-}
+const API_KEY = process.env.REACT_APP_YT_API;
 
 
-ReactDOM.render(<App />, document.querySelector('.container'))
+const App = () => {
+  return (
+    <div>
+      <SearchBar />
+    </div>
+  )
+};
+
+ReactDOM.render(<App />, document.querySelector(".container"));
 // ReactDOM.render(<App />, document.getElementsByClassName('container')[0])
