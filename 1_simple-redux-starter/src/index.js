@@ -1,36 +1,37 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import YTSearch from "youtube-api-search";
 
 // importing components
 import SearchBar from "./components/Search-bar";
+import VideoList from "./components/Video-list";
 
-const API_KEY = process.env.REACT_APP_API_KEY
+const API_KEY = process.env.REACT_APP_API_KEY;
 
 class App extends Component {
   constructor(props) {
-    super(props)
-  
+    super(props);
+    //initialise state
     this.state = {
-       videos: []
-    }
-
-    YTSearch({ key: API_KEY, term: "Oprah" }, (videos) => {
+      videos: []
+    };
+    //set state
+    YTSearch({ key: API_KEY, term: "Oprah" }, videos => {
       console.log(videos);
-      this.setState({videos})   //ES6 syntax for where object is {videos : videos}
+      this.setState({ videos }); //ES6 syntax for where object is {videos : videos}
     });
-
   }
-  
+
   render() {
     return (
       <div>
         <SearchBar />
+        <VideoList 
+        videos = {this.state.videos} />
       </div>
     );
   }
 }
-
 
 ReactDOM.render(<App />, document.querySelector(".container"));
 // ReactDOM.render(<App />, document.getElementsByClassName('container')[0])
