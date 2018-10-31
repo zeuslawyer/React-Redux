@@ -17,7 +17,6 @@ class App extends Component {
     };
     //set state
     YTSearch({ key: API_KEY, term: "Oprah" }, videos => {
-      console.log(videos);
       this.setState({ videos }); //ES6 syntax for where object is {videos : videos}
     });
   }
@@ -26,8 +25,7 @@ class App extends Component {
     return (
       <div>
         <SearchBar />
-        <VideoList 
-        videos = {this.state.videos} />
+        <VideoList videos = {this.state.videos} />
       </div>
     );
   }
