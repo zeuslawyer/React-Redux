@@ -16,7 +16,7 @@ class App extends Component {
       videos: []
     };
     //set state
-    YTSearch({ key: API_KEY, term: "Oprah" }, videos => {
+    YTSearch({ key: API_KEY, term: "Gary Vee" }, videos => {
       this.setState({ videos }); //ES6 syntax for where object is {videos : videos}
     });
   }
@@ -25,6 +25,7 @@ class App extends Component {
     return (
       <div>
         <SearchBar />
+        {/* pass fetched videos array as a prop */}
         <VideoList videos = {this.state.videos} />
       </div>
     );
