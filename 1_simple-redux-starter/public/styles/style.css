@@ -1,0 +1,35 @@
+/* the top level div in a given component 
+should be given a class name that is the same as 
+the component name, but lowercase and hyphen. makes
+reading code much easier in the css file */
+
+.container {
+    
+}
+.search-bar {
+    margin: 20px;
+    text-align: center
+}
+
+.search-bar input {
+    width: 75%;
+}
+
+.video-item img {
+    max-width: 64px;
+}
+
+.video-detail .details {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.list-group-item {
+    cursor: pointer;
+}
+
+.list-group-item:hover {
+    background-color: rgb(204, 252, 252);
+}

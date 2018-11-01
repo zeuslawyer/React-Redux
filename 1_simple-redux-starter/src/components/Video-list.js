@@ -4,7 +4,7 @@ import VideoListItem from './Video-list-item'
 const VideoList = ({videos, onVideoSelect}) => {
     
   //get array of VideoListItem Components from props using MAP function
-  const videoItems = videos.map((video)=>{
+  const videoListItems = videos.map((video)=>{
       //pass each video object as a prop into the VideoListItem Component
       // map function returns a list of VideoListItem components
     return (
@@ -21,7 +21,7 @@ const VideoList = ({videos, onVideoSelect}) => {
     return (
     <div>
       <ul className='col-md-10 list-group' >
-          {videoItems}
+          {videoListItems}
       </ul>
     </div>
   )
