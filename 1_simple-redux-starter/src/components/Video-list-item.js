@@ -1,13 +1,18 @@
 import React from "react";
 import VideoDetail from "./Video-detail";
 
-const VideoListItem = ({video}) => {    //method 2: the video property from props that gets received is deconstructed to a const with the same name
-  console.log(video);
+const VideoListItem = ({ video, onVideoSelect }) => {
+  //method 2: the video property from props that gets received is deconstructed to a const with the same name
+  // console.log(video);
   const imageUrl = video.snippet.thumbnails.default.url;
   const title = video.snippet.title;
 
   return (
-    <li className="list-group-item">
+    <li
+      className="list-group-item"
+      // click handler: callback function which calls onVideoSelect
+      onClick={() => onVideoSelect(video)}
+    >
       <div className="video-list media">
         <div className="media-left">
           <img className="media-object" alt="" src={imageUrl} />
