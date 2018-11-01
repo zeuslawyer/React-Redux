@@ -11,7 +11,7 @@ const VideoList = (props) => {
   //return component that is a list of videos, to be rendered
     return (
     <div>
-      <ul className='col-md-8 list-group' >
+      <ul className='col-md-10 list-group' >
           {videoItems}
       </ul>
     </div>

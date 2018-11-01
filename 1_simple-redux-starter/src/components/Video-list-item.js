@@ -1,4 +1,5 @@
 import React from "react";
+import VideoDetail from "./Video-detail";
 
 const VideoListItem = ({video}) => {    //method 2: the video property from props that gets received is deconstructed to a const with the same name
   console.log(video);

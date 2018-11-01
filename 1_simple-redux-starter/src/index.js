@@ -5,6 +5,8 @@ import YTSearch from "youtube-api-search";
 // importing components
 import SearchBar from "./components/Search-bar";
 import VideoList from "./components/Video-list";
+import VideoDetail from "./components/Video-detail";
+
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
@@ -16,7 +18,7 @@ class App extends Component {
       videos: []
     };
     //set state
-    YTSearch({ key: API_KEY, term: "Gary Vee" }, videos => {
+    YTSearch({ key: API_KEY, term: "peter dinklage" }, videos => {
       this.setState({ videos }); //ES6 syntax for where object is {videos : videos}
     });
   }
@@ -25,7 +27,7 @@ class App extends Component {
     return (
       <div>
         <SearchBar />
-        {/* pass fetched videos array as a prop */}
+        <VideoDetail video={this.state.videos[0]}/>
         <VideoList videos = {this.state.videos} />
       </div>
     );
