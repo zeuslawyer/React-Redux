@@ -1,5 +1,6 @@
 import React from "react";
 
+
 const VideoDetail = ({ video }) => {
   // handle null props where API fetch has not completed... return statement means the lines below that wont run
   if(!video) {

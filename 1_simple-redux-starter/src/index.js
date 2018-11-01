@@ -18,8 +18,14 @@ class App extends Component {
       videos: [],
       selectedVideo: null
     };
-    //set state
-    YTSearch({ key: API_KEY, term: "props and state" }, videos => {
+    //set initial load state using the handler method
+    this.onVideoSearch('react tutorials')
+  }
+
+  // handler methods - are defined outside constructors
+  onVideoSearch(searchTerm) {
+    //search YT, retrieve videos, set state with videos array, choose initial video detail from index 0
+    YTSearch({ key: API_KEY, term: searchTerm }, (videos) => {
       this.setState({ 
         videos: videos,
         selectedVideo : videos[0]
@@ -30,7 +36,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <SearchBar />
+        <SearchBar onSearchTermChange={(searchTerm) => this.onVideoSearch(searchTerm)} />
         <VideoDetail video={this.state.selectedVideo}/>
         <VideoList 
         videos = {this.state.videos}
