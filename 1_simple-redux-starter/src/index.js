@@ -9,6 +9,8 @@ import VideoDetail from "./components/Video-detail";
 
 
 const API_KEY = process.env.REACT_APP_API_KEY;
+const DEFAULT_SEARCH_TERM = 'react tutorials'
+
 
 class App extends Component {
   constructor(props) {
@@ -19,12 +21,16 @@ class App extends Component {
       selectedVideo: null
     };
     //set initial load state using the handler method
-    this.onVideoSearch('react tutorials')
+    this.onVideoSearch(DEFAULT_SEARCH_TERM)
   }
 
   // handler methods - are defined outside constructors
   onVideoSearch(searchTerm) {
-    //search YT, retrieve videos, set state with videos array, choose initial video detail from index 0
+// if search term is deleted, then set a default search term    
+    if (searchTerm == ""){
+      return this.onVideoSearch(DEFAULT_SEARCH_TERM);
+    }
+//search YT, retrieve videos, set state with videos array, choose initial video detail from index 0
     YTSearch({ key: API_KEY, term: searchTerm }, (videos) => {
       this.setState({ 
         videos: videos,

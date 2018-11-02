@@ -7,13 +7,16 @@ class SearchBar extends Component {
     this.state = {
       searchTerm: ""
     };
-    //method biding in constructor method - USED IN METHOD 2
+    //method binding in constructor method - USED IN METHOD 2
     // this.onInputChange = this.onInputChange.bind(this);
   }
 
   // handler functions
   onInputChange(searchTerm) {
-    this.setState({ searchTerm });
+    this.setState({ 
+      // if search term is deleted/null, then set a default search term as ""
+      searchTerm : searchTerm || "",
+    });
     this.props.onSearchTermChange(searchTerm);
   }
 
