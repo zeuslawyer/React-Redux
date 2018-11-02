@@ -3,9 +3,7 @@ should be given a class name that is the same as
 the component name, but lowercase and hyphen. makes
 reading code much easier in the css file */
 
-.container {
-    
-}
+
 .search-bar {
     margin: 20px;
     text-align: center

@@ -20,7 +20,7 @@ const VideoList = ({videos, onVideoSelect}) => {
   //return component that is a list of videos, to be rendered
     return (
     <div>
-      <ul className='col-md-10 list-group' >
+      <ul className='col-md-4 list-group' >
           {videoListItems}
       </ul>
     </div>
