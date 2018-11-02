@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import YTSearch from "youtube-api-search";
@@ -9,7 +10,7 @@ import VideoDetail from "./components/Video-detail";
 
 
 const API_KEY = process.env.REACT_APP_API_KEY;
-const DEFAULT_SEARCH_TERM = 'react tutorials'
+const DEFAULT_SEARCH_TERM = 'game of thrones'
 
 
 class App extends Component {
@@ -21,14 +22,14 @@ class App extends Component {
       selectedVideo: null
     };
     //set initial load state using the handler method
-    this.onVideoSearch(DEFAULT_SEARCH_TERM)
+    this.videoSearch(DEFAULT_SEARCH_TERM)
   }
 
   // handler methods - are defined outside constructors
-  onVideoSearch(searchTerm) {
+  videoSearch(searchTerm) {
 // if search term is deleted, then set a default search term    
-    if (searchTerm == ""){
-      return this.onVideoSearch(DEFAULT_SEARCH_TERM);
+    if (searchTerm === ""){
+      return this.videoSearch(DEFAULT_SEARCH_TERM);
     }
 //search YT, retrieve videos, set state with videos array, choose initial video detail from index 0
     YTSearch({ key: API_KEY, term: searchTerm }, (videos) => {
@@ -40,10 +41,11 @@ class App extends Component {
   }
 
   render() {
+    const videoSearch = _.debounce((term)=>{this.videoSearch(term)}, 1000)
     return (
       <div>
-        <SearchBar onSearchTermChange={(searchTerm) => this.onVideoSearch(searchTerm)} />
-        {/* <SearchBar onSearchTermChange={this.onVideoSearch(searchTerm)} /> */}
+        <SearchBar onSearchTermChange={(searchTerm) => videoSearch(searchTerm)} />
+        {/* <SearchBar onSearchTermChange={this.videoSearch(searchTerm)} /> */}
         <VideoDetail video={this.state.selectedVideo}/>
         <VideoList 
         videos = {this.state.videos}
