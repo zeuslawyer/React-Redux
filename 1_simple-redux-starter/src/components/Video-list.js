@@ -1,32 +1,26 @@
-import React from 'react'
-import VideoListItem from './Video-list-item'
+import React from "react";
+import VideoListItem from "./Video-list-item";
 
-const VideoList = ({videos, onVideoSelect}) => {
-    
+const VideoList = ({ videos, onVideoSelect }) => {
   //get array of VideoListItem Components from props using MAP function
-  const videoListItems = videos.map((video)=>{
-      //pass each video object as a prop into the VideoListItem Component
-      // map function returns a list of VideoListItem components
+  const videoListItems = videos.map(video => {
+    //pass each video object as a prop into the VideoListItem Component
+    // map function returns a list of VideoListItem components
     return (
-      <VideoListItem 
-        key={video.etag} 
+      <VideoListItem
+        key={video.etag}
         video={video}
-        onVideoSelect = {onVideoSelect}
-        />
-    ) 
-  
-  })
+        onVideoSelect={onVideoSelect}
+      />
+    );
+  });
 
   //return component that is a list of videos, to be rendered
-    return (
+  return (
     <div>
-      <ul className='col-md-4 list-group' >
-          {videoListItems}
-      </ul>
+      <ul className="col-md-4 list-group">{videoListItems}</ul>
     </div>
-  )
-
-
-}
+  );
+};
 
 export default VideoList;
