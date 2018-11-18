@@ -3,11 +3,11 @@ import React from "react";
 const CommentDetail = props => {
   return (
       <div className="comment">
-        <a href="/" className="avatar">
+        <a href="#" className="avatar">
           <img alt="avatar" src={props.imageURL} />
         </a>
         <div className="content">
-          <a href="/"> {props.author || "Anon"} </a>
+          <a href="#"> {props.author || "Anon"} </a>
           <div className="metadata">
             <span className="date">
               {props.date} at {props.time}
