@@ -1,9 +1,9 @@
 import React from 'react'
 
-const SeasonDisplay = () => {
+const SeasonDisplay = (props) => {
   return (
     <div>
-      Season
+      Season Display Widget
     </div>
   )
 }
