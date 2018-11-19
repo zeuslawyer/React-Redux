@@ -5,15 +5,16 @@ import Loader from './loader'
 
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { latitude: null, errMessage:null };
-    this.getLocation();
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = { latitude: null, errMessage:null };
+  // }
 
+  state = { latitude: null, errMessage:null };
+  
   componentDidMount(){
     console.log('component did mount! \n', this.state)
-    // this.getLocation();
+    this.getLocation();
   }
   componentDidUpdate(){
     console.log('component did update! \n', this.state)
@@ -36,14 +37,8 @@ class App extends Component {
 
   getLocation = () => {
     window.navigator.geolocation.getCurrentPosition(
-      position => {
-        // console.log(position.coords.latitude.toString().slice(1,10));
-        this.setState({ latitude: position.coords.latitude });
-      },
-      err => {
-        this.setState({errMessage: err.message})
-        console.log('State : ', this.state.errMessage);
-      }
+      position => this.setState({ latitude: position.coords.latitude }),
+      err => this.setState({errMessage: err.message})
     );
   };
 }
