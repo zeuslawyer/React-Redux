@@ -11,7 +11,7 @@ class App extends Component {
   // }
 
   state = { latitude: null, errMessage:null };
-  
+
   componentDidMount(){
     console.log('component did mount! \n', this.state)
     this.getLocation();
@@ -23,7 +23,7 @@ class App extends Component {
   render() {
     if(this.state.latitude && !this.state.errMessage) {
       return (
-        <div className="segment ui"> Latitude: {this.state.latitude} </div>
+        <div className="segment ui"> <SeasonDisplay latitude={this.state.latitude}/> </div>
       ) 
     }
     if (this.state.errMessage && !this.state.latitude ) {
