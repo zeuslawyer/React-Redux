@@ -11,6 +11,14 @@ class App extends Component {
     this.getLocation();
   }
 
+  componentDidMount(){
+    console.log('component did mount! \n', this.state)
+    // this.getLocation();
+  }
+  componentDidUpdate(){
+    console.log('component did update! \n', this.state)
+  }
+
   render() {
     if(this.state.latitude && !this.state.errMessage) {
       return (
