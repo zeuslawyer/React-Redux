@@ -4,7 +4,6 @@ import SeasonDisplay from "./SeasonDisplay";
 import Loader from "./loader";
 
 class App extends Component {
-
   state = { latitude: null, errMessage: null };
 
   componentDidMount() {
@@ -29,7 +28,11 @@ class App extends Component {
 
     return (
       <div className="">
-        <Loader />
+        <Loader
+          message="Waiting for you to confirm your location!"
+          type="cylon"
+          color="#ff0000"
+        />
       </div>
     );
   }
