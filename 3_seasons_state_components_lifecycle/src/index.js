@@ -4,6 +4,7 @@ import SeasonDisplay from "./SeasonDisplay";
 import Loader from "./loader";
 
 class App extends Component {
+
   state = { latitude: null, errMessage: null };
 
   componentDidMount() {
@@ -27,7 +28,7 @@ class App extends Component {
     }
 
     return (
-      <div className="center">
+      <div className="">
         <Loader />
       </div>
     );
