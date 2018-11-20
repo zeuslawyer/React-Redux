@@ -15,11 +15,14 @@ class App extends Component {
 
   componentDidMount() {
     this.getLocation();
-    console.log("component did mount! State Object is: \n", this.state);
+    console.log("<App /> component did mount! State Object is: \n", this.state);
   }
 
   componentDidUpdate() {
-    console.log("component did update!State Object is: \n", this.state);
+    console.log(
+      " <App />  component did update! State Object is: \n",
+      this.state
+    );
   }
 
   renderContent() {
