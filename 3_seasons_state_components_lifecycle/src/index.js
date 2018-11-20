@@ -4,25 +4,32 @@ import SeasonDisplay from "./SeasonDisplay";
 import Loader from "./loader";
 
 class App extends Component {
-  state = { latitude: null, errMessage: null };
-  
+  state = { latitude: null, errMessage: null, time:new Date().toLocaleTimeString() };
+
   getLocation = () => {
     window.navigator.geolocation.getCurrentPosition(
       position => this.setState({ latitude: position.coords.latitude }),
       err => this.setState({ errMessage: err.message })
     );
   };
-  
+
   componentDidMount() {
     this.getLocation();
+
+    setInterval(() => {
+      this.setState( {time: new Date().toLocaleTimeString()} )
+      this.time = new Date().toLocaleTimeString()    
+  }, 1000)
+
     console.log("component did mount! State Object is: \n", this.state);
   }
 
   componentDidUpdate() {
-    console.log("component did update!State Object is: \n", this.state);
+    // console.log("component did update!State Object is: \n", this.state);
+    console.log(`${this.state.time}`);
   }
 
-  renderContent(){
+  renderContent() {
     if (this.state.latitude && !this.state.errMessage) {
       return (
         <div className="">
@@ -48,15 +55,11 @@ class App extends Component {
 
   render() {
     return (
-      <div className="some enclosing div common to all"  >
+      <div className="some enclosing div common to all">
         {this.renderContent()}
       </div>
-      
-    )
+    );
   }
-
 }
-
-export default App;
 
 ReactDOM.render(<App />, document.querySelector("#root"));
