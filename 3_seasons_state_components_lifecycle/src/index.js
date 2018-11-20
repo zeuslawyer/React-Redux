@@ -4,7 +4,7 @@ import SeasonDisplay from "./SeasonDisplay";
 import Loader from "./loader";
 
 class App extends Component {
-  state = { latitude: null, errMessage: null, time:new Date().toLocaleTimeString() };
+  state = { latitude: null, errMessage: null };
 
   getLocation = () => {
     window.navigator.geolocation.getCurrentPosition(
@@ -15,18 +15,11 @@ class App extends Component {
 
   componentDidMount() {
     this.getLocation();
-
-    setInterval(() => {
-      this.setState( {time: new Date().toLocaleTimeString()} )
-      this.time = new Date().toLocaleTimeString()    
-  }, 1000)
-
     console.log("component did mount! State Object is: \n", this.state);
   }
 
   componentDidUpdate() {
-    // console.log("component did update!State Object is: \n", this.state);
-    console.log(`${this.state.time}`);
+    console.log("component did update!State Object is: \n", this.state);
   }
 
   renderContent() {
