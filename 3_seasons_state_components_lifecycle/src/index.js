@@ -17,8 +17,7 @@ class App extends Component {
   render() {
     if (this.state.latitude && !this.state.errMessage) {
       return (
-        <div className="segment ui">
-          {" "}
+        <div className="">
           <SeasonDisplay latitude={this.state.latitude} />{" "}
         </div>
       );
