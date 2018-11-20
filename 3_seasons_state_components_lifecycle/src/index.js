@@ -5,16 +5,24 @@ import Loader from "./loader";
 
 class App extends Component {
   state = { latitude: null, errMessage: null };
-
+  
+  getLocation = () => {
+    window.navigator.geolocation.getCurrentPosition(
+      position => this.setState({ latitude: position.coords.latitude }),
+      err => this.setState({ errMessage: err.message })
+    );
+  };
+  
   componentDidMount() {
     this.getLocation();
     console.log("component did mount! State Object is: \n", this.state);
   }
+
   componentDidUpdate() {
     console.log("component did update!State Object is: \n", this.state);
   }
 
-  render() {
+  renderContent(){
     if (this.state.latitude && !this.state.errMessage) {
       return (
         <div className="">
@@ -22,6 +30,7 @@ class App extends Component {
         </div>
       );
     }
+
     if (this.state.errMessage && !this.state.latitude) {
       return <div className="segment ui"> Error: {this.state.errMessage} </div>;
     }
@@ -37,12 +46,15 @@ class App extends Component {
     );
   }
 
-  getLocation = () => {
-    window.navigator.geolocation.getCurrentPosition(
-      position => this.setState({ latitude: position.coords.latitude }),
-      err => this.setState({ errMessage: err.message })
-    );
-  };
+  render() {
+    return (
+      <div className="some enclosing div common to all"  >
+        {this.renderContent()}
+      </div>
+      
+    )
+  }
+
 }
 
 export default App;
