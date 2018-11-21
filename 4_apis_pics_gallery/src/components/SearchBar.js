@@ -3,10 +3,16 @@ import React, { Component } from "react";
 class SearchBar extends Component {
   state = { searchTerm: "" };
 
+  onFormSubmit(event) {
+    event.preventDefault();
+    console.log(this);
+  }
   render() {
+    console.log(this.state.searchTerm)
+
     return (
       <div className="ui segment">
-        <form className="ui form">
+        <form className="ui form" onSubmit={this.onFormSubmit}>
           <div className="field">
             <label>Image Search</label>
             <input
@@ -15,7 +21,6 @@ class SearchBar extends Component {
               placeholder="Enter search text here"
               onChange={event => {
                 this.setState({ searchTerm: event.target.value });
-                console.log(this);
               }}
             />
           </div>
