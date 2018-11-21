@@ -3,19 +3,11 @@ import React, { Component } from "react";
 class SearchBar extends Component {
   state = { searchTerm: "" };
 
-  constructor() {
-    super();
-    this.hitMeUp = this.hitMeUp.bind(this);
-  }
-
-  hitMeUp(event) {
-    console.log(this);
-    this.setState({ searchTerm: event.target.value })
-  }
-  onFormSubmit(event) {
+  onFormSubmit = (event) => {
     event.preventDefault();
     console.log(this);
   }
+
   render() {
     console.log(this.state.searchTerm);
 
@@ -28,10 +20,9 @@ class SearchBar extends Component {
               type="text"
               value={this.state.searchTerm}
               placeholder="Enter search text here"
-              //   onChange={event => {
-              //     this.setState({ searchTerm: event.target.value });
-              //   }}
-              onChange={this.hitMeUp}
+              onChange={event => {
+                this.setState({ searchTerm: event.target.value });
+              }}
             />
           </div>
         </form>
