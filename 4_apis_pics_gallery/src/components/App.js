@@ -1,11 +1,11 @@
 import React from "react";
 import SearchBar from "./SearchBar";
 
-const style = {marginTop:"10px"}
+const componentStyle = {marginTop:"10px"}
 
 function App() {
   return (
-    <div className="ui container" style={style}>
+    <div className="ui container" style={componentStyle}>
       <SearchBar />
     </div>
   );
