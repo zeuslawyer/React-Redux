@@ -7,10 +7,10 @@ const componentStyle = { marginTop: "10px" };
 
 class App extends Component {
   handleResponse = (response) =>{
-    console.group(response.data.results)
+    console.log(response.data.results)
   }
-  onSearchSubmit = term => {
-    axios
+  onSearchSubmit = async term => {
+    const response = await axios
       .get("https://api.unsplash.com/search/photos", {
         params: { query: term },
         headers: {
@@ -18,8 +18,10 @@ class App extends Component {
         }
       })
       // .then(d => console.log(d.data.results[1].urls.regular))
-      .then(this.handleResponse)
-      .catch(e => console.log(e.message));
+      // .then(this.handleResponse)
+      // .catch(e => console.log(e.message));
+
+      console.log(response.data.results[0].urls.regular);
   };
 
   render() {
