@@ -6,6 +6,9 @@ import SearchBar from "./SearchBar";
 const componentStyle = { marginTop: "10px" };
 
 class App extends Component {
+  handleResponse = (response) =>{
+    console.group(response.data.results)
+  }
   onSearchSubmit = term => {
     axios
       .get("https://api.unsplash.com/search/photos", {
@@ -14,7 +17,8 @@ class App extends Component {
           Authorization: "Client-ID " + process.env.REACT_APP_UNSPLASH_ACCESS
         }
       })
-      .then(d => console.log(d.data.results[1].urls.regular))
+      // .then(d => console.log(d.data.results[1].urls.regular))
+      .then(this.handleResponse)
       .catch(e => console.log(e.message));
   };
 
