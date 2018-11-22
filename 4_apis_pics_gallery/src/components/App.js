@@ -12,7 +12,7 @@ class App extends Component {
   render() {
     return (
       <div className="ui container" style={componentStyle}>
-        <SearchBar onSubmit={this.onSearchSubmit} />
+        <SearchBar onFormSubmit={this.onSearchSubmit} />
       </div>
     );
   }
