@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+import SearchBar from "./SearchBar";
+import ImageList from './ImageList'
+
 import unsplash from "../api/unsplash";
 
-import SearchBar from "./SearchBar";
 
 const componentStyle = { marginTop: "10px" };
 
@@ -22,15 +24,11 @@ class App extends Component {
   };
 
   render() {
-    if (this.state.images.length > 0) {
-      return (
-        <div>There are {this.state.images.length} images available...</div>
-      );
-    }
-
     return (
       <div className="ui container" style={componentStyle}>
         <SearchBar onFormSubmit={this.onSearchSubmit} />
+        <div>There are {this.state.images.length} images available...</div>
+        <ImageList images={this.state.images} />
       </div>
     );
   }
