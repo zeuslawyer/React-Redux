@@ -8,10 +8,6 @@ class ImageCard extends Component {
   }
 
   componentDidMount() {
-    console.log(
-      this.imageRef.current.height === this.imageRef.current.clientHeight
-    );
-
     //listen for the imageRef.current object to full load, then calculate spans using callback
     this.imageRef.current.addEventListener("load", this.setImageSpans);
   }
@@ -19,7 +15,7 @@ class ImageCard extends Component {
   setImageSpans = () => {
     const height = this.imageRef.current.clientHeight;
     const gridRowHeight = 10; //taken from the ImageList css grid-auto-rows rule
-    const span = Math.ceil(height / 10);
+    const span = Math.ceil(height / gridRowHeight);
     this.setState({ span });
   };
 

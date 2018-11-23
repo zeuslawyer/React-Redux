@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import SearchBar from "./SearchBar";
-import ImageList from './ImageList'
+import ImageList from "./ImageList";
 
 import unsplash from "../api/unsplash";
-
 
 const componentStyle = { marginTop: "10px" };
 
