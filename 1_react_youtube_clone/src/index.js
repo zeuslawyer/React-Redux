@@ -19,8 +19,7 @@ class App extends Component {
       videos: [],
       selectedVideo: null
     };
-    //set initial load state using the handler method
-    this.videoSearch(DEFAULT_SEARCH_TERM);
+    
   }
 
   // handler methods - are defined outside constructors
@@ -38,16 +37,24 @@ class App extends Component {
     });
   }
 
+  componentDidMount() {
+    //set initial load state using the handler method
+    this.videoSearch(DEFAULT_SEARCH_TERM);
+  }
+
   render() {
     const cb = term => {
       return this.videoSearch(term);
     };
+
+    //debounce is to delay the calling of videoSearch()
     const videoSearch = _.debounce(cb, 300);
     // const videoSearch = _.debounce((term)=>{this.videoSearch(term)}, 1000)
     return (
       <div>
         <SearchBar onSearchTermChange={searchTerm => videoSearch(searchTerm)} />
         {/* <SearchBar onSearchTermChange={this.videoSearch(searchTerm)} /> */}
+    
         <VideoDetail video={this.state.selectedVideo} />
         <VideoList
           videos={this.state.videos}

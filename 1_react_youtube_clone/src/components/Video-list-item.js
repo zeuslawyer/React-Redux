@@ -10,7 +10,7 @@ const VideoListItem = ({ video, onVideoSelect }) => {
     <li
       className="list-group-item"
       // click handler: callback function which calls onVideoSelect
-      onClick={() => onVideoSelect(video)}
+      onClick={elem => onVideoSelect(video)}
     >
       <div className="video-list media">
         <div className="media-left">

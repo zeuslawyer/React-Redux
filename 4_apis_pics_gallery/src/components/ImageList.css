@@ -9,15 +9,16 @@
 .image-list img {
     width: 250px;
     grid-row-end: span 2; 
-    height: 250px;  /* quick fix to get around the grid-auto-rows not working*/
+    height:  250px;  /* quick fix to get around the grid-auto-rows not working*/
     border-radius: 60%;  
     cursor: pointer;
     
 }
 
 .image-list img:hover {
-    transform: scale(1.08);
-    border: 7px solid green
+    transform: scale(1.2);
+    border: 7px solid grey;
+    
 }
 
 .image-list div {

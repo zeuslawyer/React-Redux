@@ -13,9 +13,9 @@ class SearchBar extends Component {
 
   // handler functions
   onInputChange(searchTerm) {
-    this.setState({ 
+    this.setState({
       // if search term is deleted/null, then set a default search term as ""
-      searchTerm : searchTerm || "",
+      searchTerm: searchTerm || ""
     });
     this.props.onSearchTermChange(searchTerm);
   }
@@ -26,11 +26,16 @@ class SearchBar extends Component {
       <div className="search-bar">
         <input
           value={this.state.searchTerm}
-          onChange={(event) => {
+          onChange={event => {
             this.onInputChange(event.target.value);
           }}
         />
-        Input Value is: {this.state.searchTerm}
+        <div>
+          <small>
+            <b>Check the spelling of your search term:</b>{" "}
+          </small>
+          {this.state.searchTerm}
+        </div>
       </div>
     );
   }
