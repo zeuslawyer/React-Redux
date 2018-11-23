@@ -2,7 +2,7 @@
 .image-list{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    grid-gap: 0 10px;  
+    grid-gap: 0 10px;
     /* grid-auto-rows: 10px ; */
 }
 
@@ -10,10 +10,16 @@
     width: 250px;
     grid-row-end: span 2; 
     height: 250px;  /* quick fix to get around the grid-auto-rows not working*/
-    border-radius: 60%;
+    border-radius: 60%;  
+    cursor: pointer;
     
 }
 
+.image-list img:hover {
+    transform: scale(1.08);
+    border: 7px solid green
+}
+
 .image-list div {
-    margin: auto;
+     margin: auto;
 }
