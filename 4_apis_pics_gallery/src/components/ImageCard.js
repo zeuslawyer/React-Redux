@@ -1,14 +1,12 @@
 import React, { Component } from "react";
 
 class ImageCard extends Component {
-  
-
   render() {
-    let {url, desc} = this.props  
+    let { urls, description } = this.props.image;
+
     return (
-        // <div></div>
-      <div >
-        <img src={url} alt={desc} />
+      <div>
+        <img src={urls.regular} alt={description} />
       </div>
     );
   }
