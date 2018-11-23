@@ -1,16 +1,16 @@
 import React from "react";
+import './ImageList.css'
 
 const ImageList = props => {
-  const componentStyle = { width: "30em", height: "30em" };
 
   const images = props.images.map(image => (
       <div key={image.id}>
-        <img src={image.urls.regular} alt={image.description} style={componentStyle} />
+        <img src={image.urls.regular} alt={image.description} />
       </div>
   ));
 
   return (
-    <div className="container ui">
+    <div className="image-list">
       {images}
     </div>
   );
