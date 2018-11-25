@@ -19,7 +19,6 @@ class App extends Component {
       videos: [],
       selectedVideo: null
     };
-    
   }
 
   // handler methods - are defined outside constructors
@@ -54,7 +53,7 @@ class App extends Component {
       <div>
         <SearchBar onSearchTermChange={searchTerm => videoSearch(searchTerm)} />
         {/* <SearchBar onSearchTermChange={this.videoSearch(searchTerm)} /> */}
-    
+
         <VideoDetail video={this.state.selectedVideo} />
         <VideoList
           videos={this.state.videos}

@@ -5,7 +5,6 @@ import Loader from "./loader";
 
 class App extends Component {
   state = { latitude: null, errMessage: null };
-
   getLocation = () => {
     window.navigator.geolocation.getCurrentPosition(
       position => this.setState({ latitude: position.coords.latitude }),
