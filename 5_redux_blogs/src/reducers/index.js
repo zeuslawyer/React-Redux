@@ -1,6 +1,8 @@
-import actions from '../actions/index.js'
 import { combineReducers } from 'redux';
 
+const dummyReducer = () => 'This is dummy initial data'
 
 
- export default combineReducers({})
+ export default combineReducers({dummyReducer})
+
+
