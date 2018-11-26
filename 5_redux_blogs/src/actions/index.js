@@ -5,6 +5,7 @@ import jsonPlaceholder from "../apis/jsonplaceholder";
 const dummyAction = () => {
   return async (dispatch, getState) => {
     const response = await jsonPlaceholder.get("/posts");
+    console.log(response.data);
 
     //manually dispatch the action from inside this inner function
     dispatch({ type: "DUMMY_ACTION", payload: response });
