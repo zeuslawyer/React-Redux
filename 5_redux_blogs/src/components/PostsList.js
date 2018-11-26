@@ -8,7 +8,7 @@ class PostsList extends Component {
   }
 
   componentDidMount(){
-    this.props.dummyAction()
+    this.props.dummyAction();
   }
 }
 
