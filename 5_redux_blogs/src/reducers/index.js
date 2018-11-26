@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 
-const dummyReducer = (name=null, action) => {
-    if (action.type ==="DUMMY_ACTION") {return action.payload.name;}
+const dummyReducer = (data=[], action) => {
+    if (action.type ==="DUMMY_ACTION") {return action.payload;}
     //else
-    return name;
+    return data;
 }
 
 
