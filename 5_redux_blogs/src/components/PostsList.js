@@ -1,15 +1,16 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import UserHeader from './UserHeader'
+import UserHeader from "./UserHeader";
 import { getPosts } from "../actions/index";
 
 class PostsList extends Component {
   render() {
-    return <div className="ui relaxed divided list"> {this.renderList()} </div>
+    return <div className="ui relaxed divided list"> {this.renderList()} </div>;
   }
   renderList() {
     const listOfPosts = this.props.posts.map(post => {
+      if(post.userId==='undefined') console.log(post)
       return (
         <div className="item" key={post.id}>
           <i className="large middle aligned icon user" />
@@ -18,10 +19,9 @@ class PostsList extends Component {
               <h2> {post.title} </h2>
               <p>{post.body}</p>
             </div>
-            <hr style={{width:'20%', align:'left'}}></hr>
+            <hr style={{ width: "20%", align: "left" }} />
             <UserHeader userID={post.userId} />
           </div>
-          
         </div>
       );
     });

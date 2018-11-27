@@ -8,5 +8,5 @@ import userReducer from './userReducer'
 //and get 'pulled off' the store/state n the mapStateToProps method
 export default combineReducers({
   posts: postsReducer,
-  user: userReducer
+  users: userReducer
 });

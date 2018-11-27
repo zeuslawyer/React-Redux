@@ -2,7 +2,7 @@
 export default (state = [], { type, payload }) => {
     switch (type) {
       case "GET_USER":
-        return payload;
+        return [...state, payload];
       default:
         return state;
     }

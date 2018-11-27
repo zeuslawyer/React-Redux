@@ -11,17 +11,28 @@ const getPosts = () => {
   };
 };
 
-const getUser = userId => {
-  //an async action using thunk -> always returns a function that takes 2 args
-  return async (dispatch, getState) => {
-    // console.log("TRIGGERED for... ", userId);
-    let path = `/users/${userId}`;
-    const response = await jsonPlaceholder.get(path);
 
-    //then manually dispatch the action from inside this inner function
-    // type and payload property names cannot be changed. they are mandatory names
-    dispatch({ type: "GET_USER", payload: response.data });
-  };
-};
+const getUser = (id) => async (dispatch, getState) => {
+  const response =await jsonPlaceholder.get(`/users/${id}`);
+   
+  dispatch({
+    type:"GET_USER",
+    payload: response.data
+  })
+}
+
+
+// const getUser = userId => {
+//   //an async action using thunk -> always returns a function that takes 2 args
+//   return async (dispatch, getState) => {
+//     // console.log("TRIGGERED for... ", userId);
+//     let path = `/users/${userId}`;
+//     const response = await jsonPlaceholder.get(path);
+
+//     //then manually dispatch the action from inside this inner function
+//     // type and payload property names cannot be changed. they are mandatory names
+//     dispatch({ type: "GET_USER", payload: response.data });
+//   };
+// };
 
 export { getPosts, getUser };
