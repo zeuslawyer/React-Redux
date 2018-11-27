@@ -1,15 +1,16 @@
 import jsonPlaceholder from "../apis/jsonplaceholder";
 
-//an async action using thunk -> always returns a function that takes 2 args
 
-const dummyAction = () => {
+
+const getPosts = () => {
+  //an async action using thunk -> always returns a function that takes 2 args
   return async (dispatch, getState) => {
     const response = await jsonPlaceholder.get("/posts");
-    console.log(response.data);
+    // console.log(response.data);
 
-    //manually dispatch the action from inside this inner function
-    dispatch({ type: "DUMMY_ACTION", payload: response });
+    //then manually dispatch the action from inside this inner function
+    dispatch({ type: "GET_POSTS", payload: response });
   };
 };
 
-export { dummyAction };
+export { getPosts };

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { dummyAction } from "../actions/index";
+import { getPosts } from "../actions/index";
 
 class PostsList extends Component {
   render() {
@@ -8,15 +8,16 @@ class PostsList extends Component {
   }
 
   componentDidMount(){
-    this.props.dummyAction();
+    this.props.getPosts();
   }
+  
 }
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({posts:state.posts});
 
-// const mapDispatchToProps = { dummyAction };
+// const mapDispatchToProps = { getPosts };
 
 export default connect(
-  null, // first arg -> maps redux state to this comp's props
-  {dummyAction}  //second arg-> adds actions to this comp's props
+  mapStateToProps, // first arg -> maps redux state to this comp's props
+  {getPosts}  //second arg-> adds action creator fns to this comp's props
 )(PostsList);
