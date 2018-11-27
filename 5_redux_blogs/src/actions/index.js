@@ -4,6 +4,7 @@ const getPosts = () => {
   //an async action using thunk -> always returns a function that takes 2 args
   return async (dispatch, getState) => {
     const response = await jsonPlaceholder.get("/posts");
+    response.data.pop(); // the API has an extra empty post at the end!
 
     //then manually dispatch the action from inside this inner function
     // type and payload property names cannot be changed. they are mandatory names
@@ -11,16 +12,14 @@ const getPosts = () => {
   };
 };
 
+const getUser = id => async (dispatch, getState) => {
+  const response = await jsonPlaceholder.get(`/users/${id}`);
 
-const getUser = (id) => async (dispatch, getState) => {
-  const response =await jsonPlaceholder.get(`/users/${id}`);
-   
   dispatch({
-    type:"GET_USER",
+    type: "GET_USER",
     payload: response.data
-  })
-}
-
+  });
+};
 
 // const getUser = userId => {
 //   //an async action using thunk -> always returns a function that takes 2 args

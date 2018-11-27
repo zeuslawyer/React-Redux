@@ -10,7 +10,7 @@ class PostsList extends Component {
   }
   renderList() {
     const listOfPosts = this.props.posts.map(post => {
-      if(post.userId==='undefined') console.log(post)
+
       return (
         <div className="item" key={post.id}>
           <i className="large middle aligned icon user" />
@@ -19,7 +19,7 @@ class PostsList extends Component {
               <h2> {post.title} </h2>
               <p>{post.body}</p>
             </div>
-            <hr style={{ width: "20%", align: "left" }} />
+            <hr style={{ width: "20%"}} />
             <UserHeader userID={post.userId} />
           </div>
         </div>
