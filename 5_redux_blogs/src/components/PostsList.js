@@ -19,7 +19,7 @@ class PostsList extends Component {
               <p>{post.body}</p>
             </div>
             <hr style={{width:'20%', align:'left'}}></hr>
-            <UserHeader userId={post.userId} />
+            <UserHeader userID={post.userId} />
           </div>
           
         </div>
