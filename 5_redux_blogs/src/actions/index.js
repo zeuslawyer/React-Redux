@@ -12,11 +12,17 @@ import _ from "lodash";
 
 */
 const getPostsAndUsers = () => {
+  console.log('GET POSTS AND USERS called')
   return async function(dispatch, getState) {
-    let getPostsReturnedFuction = await getPosts()  //returns a function, in this case, _getPosts, which is async
-    dispatch(getPostsReturnedFuction)
-    // TEST THAT THE POSTS HAVE BEEN FETCHED BY USING THE SECOND ARGUMENT
-    console.log(getState().posts);
+    let getPostsReturnedFuction = getPosts(); //returns a function, in this case, _getPosts, which is async
+    await dispatch(getPostsReturnedFuction); //dispatching function = thunk will immediately invoke it
+    let posts = getState().posts;
+
+    const userIds = _.map(posts, "userId"); //pulls of userId from each post object
+    const uniqueUserIds = _.uniq(userIds); //returns array of unique ids from array of ids
+    uniqueUserIds.forEach(id => {
+      dispatch(getUser(id));
+    });
   };
 };
 const getPosts = () => {
@@ -62,4 +68,4 @@ const getUser = id => {
 
 // const _getUserMemoized = _.memoize(_getUser);
 
-export { getPosts, getUser, getPostsAndUsers };
+export { getPosts, getPostsAndUsers, getUser };
