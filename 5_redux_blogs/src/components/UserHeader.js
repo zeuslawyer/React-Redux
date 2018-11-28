@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import _ from 'lodash'
+import _ from "lodash";
 
 import { getUser } from "../actions/index";
 
@@ -8,10 +8,16 @@ class UserHeader extends Component {
   render() {
     if (!this.props.user) return null;
     //else
+    console.log(this.props.user);
     return (
       <div>
         <p>userID is: {this.props.userID}</p>
-        <p>Email: {this.props.user.email}</p>
+        <p>
+          username is:
+          <a href={`mailto:${this.props.user.email}`}>
+             {this.props.user.username}
+          </a>
+        </p>
       </div>
     );
   }
