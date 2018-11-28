@@ -1,5 +1,5 @@
 import jsonPlaceholder from "../apis/jsonplaceholder";
-import _ from 'lodash'
+import _ from "lodash";
 
 const getPosts = () => {
   //an async action using thunk -> always returns a function that takes 2 args- dispatch and getState
@@ -13,7 +13,6 @@ const _getPosts = async (dispatch, getState) => {
   // type and payload property names cannot be changed. they are mandatory names
   dispatch({ type: "GET_POSTS", payload: response.data });
 };
-
 
 // const getUser = id => async (dispatch, getState) => {
 //   const response = await jsonPlaceholder.get(`/users/${id}`);
@@ -32,7 +31,7 @@ const _getPosts = async (dispatch, getState) => {
               --> and calls dispatch
 */
 
-const getUser = (id) => (dispatch, getState) => _getUserMemoized(id, dispatch)
+const getUser = id => (dispatch, getState) => _getUserMemoized(id, dispatch);
 
 async function _getUser(id, dispatch) {
   const response = await jsonPlaceholder.get(`/users/${id}`);
@@ -43,6 +42,5 @@ async function _getUser(id, dispatch) {
 }
 
 const _getUserMemoized = _.memoize(_getUser);
-
 
 export { getPosts, getUser };
