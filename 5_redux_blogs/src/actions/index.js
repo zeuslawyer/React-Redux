@@ -2,16 +2,18 @@ import jsonPlaceholder from "../apis/jsonplaceholder";
 import _ from 'lodash'
 
 const getPosts = () => {
-  //an async action using thunk -> always returns a function that takes 2 args
-  return async (dispatch, getState) => {
-    const response = await jsonPlaceholder.get("/posts");
-    response.data.pop(); // the API has an extra empty post at the end!
-
-    //then manually dispatch the action from inside this inner function
-    // type and payload property names cannot be changed. they are mandatory names
-    dispatch({ type: "GET_POSTS", payload: response.data });
-  };
+  //an async action using thunk -> always returns a function that takes 2 args- dispatch and getState
+  return _getPosts;
 };
+
+const _getPosts = async (dispatch, getState) => {
+  const response = await jsonPlaceholder.get("/posts");
+  response.data.pop(); // the API has an extra empty post at the end!
+  //then manually dispatch the action from inside this inner function
+  // type and payload property names cannot be changed. they are mandatory names
+  dispatch({ type: "GET_POSTS", payload: response.data });
+};
+
 
 // const getUser = id => async (dispatch, getState) => {
 //   const response = await jsonPlaceholder.get(`/users/${id}`);
@@ -32,7 +34,6 @@ const getPosts = () => {
 
 const getUser = (id) => (dispatch, getState) => _getUserMemoized(id, dispatch)
 
-
 async function _getUser(id, dispatch) {
   const response = await jsonPlaceholder.get(`/users/${id}`);
   dispatch({
@@ -42,7 +43,6 @@ async function _getUser(id, dispatch) {
 }
 
 const _getUserMemoized = _.memoize(_getUser);
-
 
 
 export { getPosts, getUser };
