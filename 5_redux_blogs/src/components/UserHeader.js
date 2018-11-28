@@ -1,14 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import _ from "lodash";
 
-import { getUser } from "../actions/index";
+import { getPostsAndUsers } from "../actions/index";
 
 class UserHeader extends Component {
   render() {
     if (!this.props.user) return null;
     //else
-    console.log(this.props.user);
     return (
       <div>
         <p>userID is: {this.props.userID}</p>
@@ -24,7 +22,8 @@ class UserHeader extends Component {
 
   componentDidMount() {
     //call action getUser
-    this.props.getUser(this.props.userID);
+    // this.props.getUser(this.props.userID);
+    this.props.getPostsAndUsers(this.props.userID);
   }
 }
 
@@ -36,7 +35,7 @@ const mapStateToProps = (state, ownProps) => {
   return { user };
 };
 
-const mapActionsToProps = { getUser };
+const mapActionsToProps = { getPostsAndUsers };
 
 export default connect(
   mapStateToProps,
