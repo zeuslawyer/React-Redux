@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import _ from 'lodash'
 
 import { getUser } from "../actions/index";
 
@@ -22,17 +23,17 @@ class UserHeader extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  console.log(ownProps);
   const user = state.users.find(
     user => user.id === ownProps.userID //ownProps is the props of the component before state is mapped
   );
 
-  return { user: user };
+  return { user };
 };
 
 const mapActionsToProps = { getUser };
 
 export default connect(
   mapStateToProps,
+  // {getUser: getUser}
   mapActionsToProps
 )(UserHeader);
