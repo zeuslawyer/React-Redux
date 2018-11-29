@@ -5,16 +5,15 @@ import { connect } from "react-redux";
 
 class UserHeader extends Component {
   render() {
-    if (!this.props.userID) return null;
-
+    if (!this.props.userID || !this.props.user) return null;
     //else
     // let user = this.props.users.find(user => {
     //   return user.id === this.props.userID;
     // });
     return (
       <div>
-        <p>userID is: {this.props.userID}</p>
-       
+        <p>Author: {this.props.user.name}</p>
+        <p>userID: {this.props.user.id}</p>
       </div>
     );
   }
@@ -27,11 +26,11 @@ class UserHeader extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   // console.log(state.users);
-  const user = state.users.find(
+  const user = state.users.filter(
     user => user.id === ownProps.userID //ownProps is the props of the component before state is mapped
   );
 
-  return { user };
+  return { user : user[0]};
 };
 
 // const mapActionsToProps = { getPostsAndUsers };

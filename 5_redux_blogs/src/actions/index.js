@@ -12,7 +12,6 @@ import _ from "lodash";
 
 */
 const getPostsAndUsers = () => {
-  console.log('GET POSTS AND USERS called')
   return async function(dispatch, getState) {
     let getPostsReturnedFuction = getPosts(); //returns a function, in this case, _getPosts, which is async
     await dispatch(getPostsReturnedFuction); //dispatching function = thunk will immediately invoke it
